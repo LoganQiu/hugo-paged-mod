@@ -1,1 +1,7 @@
-# hugo-paged-mod
+# Theme Name
+
+## Features
+
+## Installation
+
+## Configuration
