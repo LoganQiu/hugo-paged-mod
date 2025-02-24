@@ -1,0 +1,30 @@
+.menu,
+.meta-line,
+footer,
+body {
+  font-family: Palatino, "Palatino Linotype", "NSimSun", "SimSun-ExtB", "SimSun", "Songti SC", "SimSong", serif;
+}
+
+code {
+  font-family: Consolas, "Courier New", Monaco, "KaiTi", "KaiTi SC", monospace;
+  font-size: 90%;
+}
+
+.home blockquote,
+.cn blockquote,
+.cn em,
+.kai,
+.hash-note,
+.hide-notes .toggle-notes {
+  font-family:
+    /* Windows 英文 */
+    "Palatino Linotype",
+    /* macOS 英文 */
+    "Palatino",
+    /* Windows 中文 */
+    "SimKai", "KaiTi",
+    /* macOS 中文 */
+    "Kaiti SC", "Kai", "STKaiti",
+    /* 备选 */
+    serif;
+}
