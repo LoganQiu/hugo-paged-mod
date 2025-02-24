@@ -52,6 +52,7 @@ body {
   max-height: 4rem;
   position: absolute;
   top: 2em;
+  /* background: white; */
 }
 
 .menu {
@@ -140,6 +141,49 @@ sup a {
   border-bottom: none;
 }
 
+.archive {
+  max-width: none;
+  width: initial;
+}
+
+.archive>ul>li {
+  display: inline-block;
+  margin-right: 1em;
+}
+
+.archive>h2 {
+  text-align: initial;
+}
+
+.main>ul>li>span:first-child,
+.main>p>span:first-child,
+.main>p .subtitle,
+.hash-note,
+.post-nav,
+.stats {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.hash-note {
+  background: lightyellow;
+}
+
+.hash-note a {
+  color: inherit;
+}
+
+span.hash-note::before {
+  content: " # ";
+}
+
+/* 统计信息对齐 */
+.stats {
+  margin: 2em auto 0;
+  padding-top: 1em;
+  text-align: right;
+}
+
 .anchor {
   display: none;
 }
@@ -154,7 +198,6 @@ sup a {
 
 .single .main h3 {
   font-variant: small-caps;
-  text-align: center;
 }
 
 li {
@@ -190,13 +233,24 @@ blockquote,
 .toc-list ul {
   border-left: 2px solid var(--border-color);
   padding-left: 1em;
+  margin-block: 1em;
+  margin-inline: 0;
 }
 
 .single blockquote {
   background: var(--bg-block);
   border-left-width: 5px;
-  padding: 3px 1em 3px;
+  padding: 0.25em 1.25em;
 }
+
+/* del {
+  background-color: #d3d3d3;
+}
+
+del:hover {
+  background-color: inherit;
+  text-decoration: inherit;
+} */
 
 .post-nav {
   margin-top: 1rem;
@@ -280,7 +334,7 @@ h1.title {
 }
 
 h1.title::before {
-  content: "❧";
+  content: "§";
   font-style: normal;
   font-weight: normal;
   font-size: 6em;
