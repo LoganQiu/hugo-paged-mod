@@ -40,6 +40,14 @@ body {
 .nav-top {
   margin-bottom: 1em;
   border-bottom: 1px solid;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  /* 负边距抵消顶部缝隙 */
+  margin-top: -1em;
+  /* 补回内边距保持视觉效果 */
+  padding-top: 1em;
 }
 
 .logo {
@@ -56,6 +64,7 @@ body {
 }
 
 .menu {
+  /* font-size: 1.25em; */
   text-transform: uppercase;
 }
 
@@ -85,8 +94,10 @@ footer {
 /* code */
 pre code {
   display: block;
-  padding: 1em;
+  padding: 1em 2em;
   overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 
 pre code,
@@ -103,10 +114,26 @@ code {
   hyphens: none;
 }
 
-pre code,
-pre code:hover {
-  white-space: pre-wrap;
-  word-break: break-all;
+.copy-button {
+  position: absolute;
+  display: none;
+  cursor: pointer;
+  inset: 5px 5px auto auto;
+  width: 1em;
+  height: 1em;
+  border: 1px solid;
+  box-shadow: -3px 3px #999;
+}
+:is(:focus, :hover) > .copy-button {
+  display: inline-block;
+}
+.copy-success {
+  box-shadow: none;
+  background: #999;
+  transition: box-shadow 300ms ease-out, background 300ms ease-out;
+}
+.copy-fail {
+  border-style: dotted;
 }
 
 /* misc elements */
@@ -158,23 +185,10 @@ sup a {
 .main>ul>li>span:first-child,
 .main>p>span:first-child,
 .main>p .subtitle,
-.hash-note,
 .post-nav,
 .stats {
   color: #666;
   font-size: 0.9em;
-}
-
-.hash-note {
-  background: lightyellow;
-}
-
-.hash-note a {
-  color: inherit;
-}
-
-span.hash-note::before {
-  content: " # ";
 }
 
 /* 统计信息对齐 */
@@ -190,6 +204,7 @@ span.hash-note::before {
 
 :hover>.anchor {
   display: inline;
+  content: "#";
 }
 
 .single .main h2 {
@@ -251,6 +266,22 @@ del:hover {
   background-color: inherit;
   text-decoration: inherit;
 } */
+
+kbd {
+  border: 2px solid #ccc;
+  box-shadow: 2px 2px #999;
+  display: inline-block;
+  padding: 0 5px;
+  border-radius: 0.25em;
+  min-width: 1.5em;
+  text-align: center;
+  margin-right: .15em;
+}
+kbd:hover {
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
 
 .post-nav {
   margin-top: 1rem;

@@ -11,7 +11,6 @@
     <title>{{ .Title }}{{ with .Params.subtitle }} - {{ . }} {{ end }} - {{ .Site.Title }}</title>
     <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
     {{ end }}
-    <meta name="twitter:card" content="summary">
     {{ if eq .RelPermalink "/" }}
     <meta property="description" content="{{ .Site.Params.description }}">
     {{ else }}
@@ -20,15 +19,14 @@
       <meta property="og:description" content="{{- . -}}">
       {{ end }}
     {{ end }}
-
     {{ $autoImage := false }}
     {{ range (findRE "<img src=\"https?://[^\"]+" .Content 1) }}
     {{ $autoImage = true }}
-    <meta name="twitter:image" content="{{ replaceRE "<img src=\"" "" . | htmlUnescape }}">
+    <meta property="og:image" content="{{ replaceRE "<img src=\"" "" . | htmlUnescape }}">
     {{ end }}
     {{ with .Site.Params.twitterImage }}
     {{ if not $autoImage }}
-    <meta name="twitter:image" content="{{ absURL . }}">
+    <meta property="og:image" content="{{ absURL . }}">
     {{ end }}
     {{ end }}
 
@@ -49,11 +47,11 @@
   {{ $section := (replaceRE "^/([^/]+)/.*" "$1" .RelPermalink) }}
   {{ if eq $section "/" }}{{ $section = "" }}{{ end }}
   {{ $.Scratch.Set "section" $section }}
-  <body class="{{ if .IsPage }}single{{ end }}{{ with $section }} {{ . }}{{ end }}{{ if (in .Content `<div class="footnotes"`) }} has-sidenotes{{ end }}{{ with .Params.page_class }} {{ . }}{{ end }}">
+  <body class="{{ if .IsPage }}single{{ end }}{{ with $section }} {{ . }}{{ end }}{{ with .Params.page_class }} {{ . }}{{ end }}">
     <div class="crop-h"></div><div class="crop-v"></div><div class="crop-c"></div>
     <nav class="nav-top small">
     <div class="logo">
-    {{ with default .Site.Params.logo.en (index .Site.Params.logo $section) }}
+    {{ with default .Site.Params.logo (index .Site.Params.logo $section) }}
       <a href="{{ relURL .url }}">
       {{ if .img }}
       <img src="{{ relURL .img }}" alt="{{ .alt }}" />
