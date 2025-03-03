@@ -1,6 +1,25 @@
-{{ if .HasShortcode "plotly" }}
-<script src="https://cdn.plot.ly/plotly-3.0.0.min.js"></script>
-{{ end }}
 {{ if .HasShortcode "abcjs" }}
 <script src="https://cdn.jsdelivr.net/npm/abcjs/dist/abcjs-basic-min.js"></script>
+<style>
+  .abcjs {
+    margin: 1em 0;
+  }
+</style>
+{{ end }}
+{{ if .HasShortcode "plotly" }}
+<script src="https://cdn.plot.ly/plotly-3.0.0.min.js"></script>
+<style>
+  .plotly {
+    margin: 1em 0;
+  }
+  </style>
+{{ end }}
+{{ if .HasShortcode "highcharts" }}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<style>
+  .highcharts {
+    border: 1px dashed var(--border-color);
+    margin: 1em 0;
+  }
+</style>
 {{ end }}

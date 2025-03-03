@@ -412,7 +412,9 @@ li li {
     margin: auto;
     width: var(--text-width);
   }
-
+  .main.archive {
+    width: 100%;
+  }
   pre,
   table,
   .fullwidth {
