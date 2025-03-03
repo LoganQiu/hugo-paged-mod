@@ -2,7 +2,7 @@
 <div class="article-meta">
 <h1 class="title">{{ .Title | markdownify }}</h1>
 {{ with .Params.subtitle }}<h2 class="subtitle">{{ . | markdownify }}</h2>{{ end }}
-<h3 class="meta-line">
+<h3 class="meta-line small">
   <span>{{ partial "meta.html" . }}</span>
   <span class="term">
   {{ with .Params.categories }}
@@ -37,10 +37,4 @@
 {{ partial "post_nav.html" . }}
 {{ partial "main_extra.html" . }}
 </div>
-{{ if .Store.Get "hasMermaid" }}
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-{{ end }}
 {{ partial "footer.html" . }}
