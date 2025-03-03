@@ -1,0 +1,27 @@
+name = 'Paged-mod'
+license = 'MIT'
+# licenselink = 'https://github.com/owner/repo/LICENSE'
+description = 'Theme description'
+
+# The home page of the theme, where the source can be found
+# homepage = 'https://github.com/owner/repo'
+
+# If you have a running demo of the theme
+# demosite = 'https://owner.github.io/repo'
+
+# Taxonomy terms
+tags = ['blog', 'minimal', 'clean', 'light']
+features = ['blog']
+
+# If the theme has a single author
+[author]
+  name = 'Chenke Qiu'
+# homepage = 'Your website'
+
+# If porting an existing theme
+[original]
+  name = "Yihui Xie"
+  homepage = "https://yihui.org"
+  repo = 'https://github.com/yihui/hugo-paged'
+
+min_version = '0.110.0'

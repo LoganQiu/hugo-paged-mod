@@ -1,0 +1,23 @@
+{{- $has_code := (in .Content "</code></pre>") -}}
+{{- $has_toc := .Scratch.Get "has_toc" -}}
+{{- if $has_toc -}}
+  {{- $js := resources.Get "js/fix-toc.js" -}}
+  {{- $minified := $js | js.Build (dict "minify" true) -}}
+  <script src="{{ $minified.RelPermalink }}" defer></script>
+{{ end }}
+{{- if $has_code -}}
+  {{- $js := resources.Get "js/copy-button.js" -}}
+  {{- $minified := $js | js.Build (dict "minify" true) -}}
+  <script src="{{ $minified.RelPermalink }}" defer></script>
+{{ end }}
+{{- if (findRE `<p>(—|―|---|&mdash;)` .Content | len) -}}
+    {{- $js := resources.Get "js/right-quote.js" -}}
+    {{- $minified := $js | js.Build (dict "minify" true) -}}
+    <script src="{{ $minified.RelPermalink }}"></script>
+{{ end }}
+{{- if (in .Content `class="footnotes"`) -}}
+  {{- $js := resources.Get "js/fix-footnote.js" -}}
+  {{- $minified := $js | js.Build (dict "minify" true) -}}
+  <script src="{{ $minified.RelPermalink }}"></script>
+{{ end }}
+{{- partial "foot_extra.html" . -}}
