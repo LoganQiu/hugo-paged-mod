@@ -1,6 +1,6 @@
 # Hugo-paged-mod
 
-由 Yihui 大佬的 [hugo-paged](https://github.com/yihui/hugo-paged) 主题启发而来，对部分 样式进行了修改。
+由 Yihui 大佬的 [hugo-paged](https://github.com/yihui/hugo-paged) 主题启发而来，对部分样式进行了修改。
 
 ## Features
 
