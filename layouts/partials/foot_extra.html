@@ -1,0 +1,26 @@
+{{ if .Store.Get "hasMermaid" }}
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ 
+      startOnLoad: true,
+      theme: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default'
+    });
+    
+    // 监听系统主题变化
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      mermaid.initialize({ 
+        startOnLoad: true,
+        theme: e.matches ? 'dark' : 'default'
+      });
+    });
+  </script>
+  <style>
+    .mermaid {
+      border: 1px dashed var(--border-color);
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin: 1em 0;
+    }
+  </style>
+{{ end }}

@@ -1,5 +1,5 @@
 {{ $id := printf "plotly-%02d" .Ordinal }}
-<div id="{{ $id }}"></div>
+<div id="{{ $id }}" class="plotly"></div>
 <script>
   Plotly.newPlot(document.getElementById({{ $id }}), {{ .Inner | safeJS }});
 </script>

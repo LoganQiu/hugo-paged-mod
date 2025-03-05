@@ -1,0 +1,7 @@
+{{ $id := printf "highcharts-%02d" .Ordinal }}
+<div id="{{ $id }}" class="highcharts"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const chart = Highcharts.chart('{{ $id }}', {{ .Inner | safeJS }});
+  });
+</script>

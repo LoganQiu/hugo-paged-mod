@@ -1,0 +1,65 @@
+// Base colors for admonition types
+$admonition-colors: (
+  note:       #1f6feb,
+  tip:        #29b33b,
+  important:  #8250df,
+  warning:    #ffb700,
+  caution:    #ea0010,
+);
+
+// Base admonition styles
+.admonition {
+  margin: 1em 0;
+  overflow: hidden;
+}
+
+.admonition-header {
+  padding: 0.25em 0 0.25em 1em;
+  display: flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  
+  svg {
+    width: 1em;
+    height: 1em;
+    align-items: center;
+    margin-right: 0.5em;
+    fill: currentColor;
+  }
+}
+
+.admonition-content {
+  padding: 0.25em 0 0.25em 1em;
+  p {
+    margin: 0 0 0.5em 0;
+    &:last-child { margin-bottom: 0; }
+  }
+
+  ul, ol {
+    margin: 0 0 0.5em 0;
+    padding-left: 1.2em;
+    &:last-child { margin-bottom: 0; }
+  }
+
+  blockquote {
+    margin: 0 0 0.5em 0;
+    padding-left: 1em;
+    border-left: 4px solid var(--border-color);
+    &:last-child { margin-bottom: 0; }
+  }
+
+  code {
+    padding: 0.4em 0 0.4em 1.2em;
+  }
+}
+
+// Generate admonition types
+@each $type, $color in $admonition-colors {
+  .admonition.#{$type} {
+    border-left: 4px solid $color;
+    
+    .admonition-header {
+      color: $color;
+    }
+  }
+}

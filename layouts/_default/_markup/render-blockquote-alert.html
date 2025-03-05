@@ -1,0 +1,68 @@
+<!-- {{ $emojis := dict
+    "caution" ":exclamation:"
+    "important" ":information_source:"
+    "note" ":information_source:"
+    "tip" ":bulb:"
+    "warning" ":information_source:"
+  }}
+
+<blockquote class="alert alert-{{ .AlertType }}">
+  <p class="alert-heading">
+    {{ transform.Emojify (index $emojis .AlertType) }}
+    {{ with .AlertTitle }}
+    {{ . }}
+    {{ else }}
+    {{ or (i18n .AlertType) (title .AlertType) }}
+    {{ end }}
+  </p>
+  {{ .Text }}
+</blockquote> -->
+
+{{- /* Transpile Sass to CSS and render the link element once per page. */}}
+{{- if not (.Page.Store.Get "admonition-style-loaded-flag") }}
+  {{- with resources.Get "sass/vendors/_admonitions.scss" }}
+    {{- $opts := dict
+      "enableSourceMap" (not hugo.IsProduction)
+      "outputStyle" (cond hugo.IsProduction "compressed" "expanded")
+      "targetPath" "css/vendors/admonitions.css"
+    }}
+    {{- with . | toCSS $opts }}
+      {{- if hugo.IsProduction }}
+        {{- with . | fingerprint }}
+          <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+        {{- end }}
+      {{- else }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}">
+      {{- end }}
+    {{- end }}
+  {{- end }}
+  {{- .Page.Store.Set "admonition-style-loaded-flag" true }}
+{{- end }}
+
+{{- /* Map alert type to icon in layouts/partials/admonitions/icons. */}}
+{{- $icons := dict
+  "note"        "info.svg"
+  "tip"         "light-bulb.svg"
+  "important"   "report.svg"
+  "warning"     "alert.svg"
+  "caution"     "stop.svg"
+}}
+
+{{- /* Render admonition. */}}
+{{- $type := cond (index $icons .AlertType) .AlertType "note" }}
+{{- $partial := printf "admonitions/icons/%s" (index $icons $type) }}
+{{- if templates.Exists (printf "partials/%s" $partial) }}
+  <div class="admonition {{ $type }}">
+    <div class="admonition-header">
+      {{ partialCached $partial . }}
+      <span>{{ or .AlertTitle (T (printf "admonitions.%s" .AlertType)) (title .AlertType) }}</span>
+    </div>
+    {{- with .Text }}
+      <div class="admonition-content">
+        {{ . }}
+      </div>
+    {{- end }}
+  </div>
+{{- else }}
+  {{- errorf "The blockquote-alert render hook was unable to find layouts/partials/%s." $partial }}
+{{- end }}

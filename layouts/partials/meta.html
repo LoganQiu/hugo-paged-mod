@@ -2,15 +2,32 @@
 {{ with or (or .Params.author (index (or .Site.Params.author dict) .Section)) "" }}
 <span class="author">{{ . }}</span>
 {{ end }}
+
 {{ $date := "" }}
+{{ $lastmod := "" }}
+{{ $hasPublishDate := false }}
+
 {{ if .Params.date }}
 {{ $date = .Date.Format "2006-01-02" }}
-{{ else }}
-{{ with .Lastmod }}
-{{ $date = .Format "2006-01-02" }}
+{{ $hasPublishDate = true }}
 {{ end }}
+
+{{ if .Lastmod }}
+{{ $lastmod = .Lastmod.Format "2006-01-02" }}
 {{ end }}
+
+{{ if and (not $hasPublishDate) $lastmod }}
+{{ $date = $lastmod }}
+{{ end }}
+
 {{ with $date }}
-<span class="date">{{ . }}</span>
+<span class="date">
+  {{ . }}
+  {{ if and $hasPublishDate $lastmod }}
+    {{ if ne $date $lastmod }}
+    <span class="lastmod">[edited on {{ $lastmod }}]</span>
+    {{ end }}
+  {{ end }}
+</span>
 {{ end }}
 {{ end }}
