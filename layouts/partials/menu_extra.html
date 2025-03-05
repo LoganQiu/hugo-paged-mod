@@ -3,6 +3,6 @@
 {{ $section := default .Section ($.Scratch.Get "section") }}
 {{ with .Section }}
 {{ end }}
-<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="Attribution-NonCommercial-ShareAlike 4.0 International">{{ default "License" (index $.Site.Params.lang.license $section) }}</a>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="Attribution-NonCommercial-ShareAlike 4.0 International">{{ default "CC BY-NC-SA 4.0" (index $.Site.Params.lang.license $section) }}</a>
 <a href="#">{{ default "Back to top" (index $.Site.Params.lang.top $section) }}</a>
 {{ end }}
