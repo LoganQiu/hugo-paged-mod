@@ -6,19 +6,10 @@
   }
 </style>
 {{ end }}
-{{ if .HasShortcode "plotly" }}
-<script src="https://cdn.plot.ly/plotly-3.0.0.min.js"></script>
-<style>
-  .plotly {
-    margin: 1em 0;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-</style>
-{{ end }}
 {{ if .HasShortcode "highcharts" }}
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<link rel="stylesheet" href="https://code.highcharts.com/css/highcharts.css">
 <style>
   .highcharts {
     border: 1px dashed var(--border-color);
