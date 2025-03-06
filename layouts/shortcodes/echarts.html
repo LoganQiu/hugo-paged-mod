@@ -1,0 +1,30 @@
+{{ $id := printf "echarts-%02d" .Ordinal }}
+<div id="{{ $id }}" class="echarts"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let chart = null;
+    const option = {{ .Inner | safeJS }};
+    
+    function initChart() {
+      if (chart) {
+        chart.dispose();
+      }
+      const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      chart = echarts.init(document.getElementById('{{ $id }}'), darkModeMediaQuery.matches ? 'dark' : undefined);
+      chart.setOption(option);
+    }
+    
+    // 初始化图表
+    initChart();
+    
+    // 监听系统主题变化
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', initChart);
+    
+    // 响应式调整
+    window.addEventListener('resize', function() {
+      if (chart) {
+        chart.resize();
+      }
+    });
+  });
+</script>
