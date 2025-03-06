@@ -10,7 +10,7 @@
         chart.dispose();
       }
       const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      chart = echarts.init(document.getElementById('{{ $id }}'), darkModeMediaQuery.matches ? 'dark' : undefined);
+      chart = echarts.init(document.getElementById('{{ $id }}'), darkModeMediaQuery.matches ? 'dark-bold' : undefined);
       chart.setOption(option);
     }
     

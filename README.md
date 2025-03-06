@@ -6,7 +6,7 @@
 
 添加了 [Mermaid](https://mermaid.js.org/) 功能，以代码块格式输入。
 
-利用 Shortcode 加入了 [abcjs](https://github.com/paulrosen/abcjs)，[highcharts](https://github.com/highcharts/highcharts) 等。
+利用 Shortcode 加入了 [abcjs](https://github.com/paulrosen/abcjs)，[ECharts](https://echarts.apache.org/zh/index.html)，[highcharts](https://github.com/highcharts/highcharts) 等。
 
 启用了 GitHub 格式的 Alert 并修改了样式使其与 GitHub 基本一致。
 
