@@ -37,8 +37,8 @@ body {
   border-bottom: 1px solid;
   position: sticky;
   top: 0;
-  backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   z-index: 100;
   /* 负边距抵消顶部缝隙 */
   margin-top: -1em;
