@@ -1,10 +1,10 @@
 {{- /* Transpile Sass to CSS and render the link element once per page. */}}
 {{- if not (.Page.Store.Get "admonition-style-loaded-flag") }}
-  {{- with resources.Get "sass/vendors/_admonitions.scss" }}
+  {{- with resources.Get "sass/_admonitions.scss" }}
     {{- $opts := dict
       "enableSourceMap" (not hugo.IsProduction)
       "outputStyle" (cond hugo.IsProduction "compressed" "expanded")
-      "targetPath" "css/vendors/admonitions.css"
+      "targetPath" "css/admonitions.css"
     }}
     {{- with . | toCSS $opts }}
       {{- if hugo.IsProduction }}
