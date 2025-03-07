@@ -24,7 +24,7 @@
 {{ $toc_len := strings.Count `<li><a` $toc }}
 {{ if (default (ge $toc_len (default .Site.Params.toc_threshold 3)) .Params.show_toc) }}
 {{ .Scratch.Set "has_toc" true }}
-{{ if (default (ge $toc_len (default .Site.Params.toc_twocolumn 16)) .Params.toc_twocolumn) }}
+{{ if (default (ge $toc_len (default .Site.Params.toc_twocolumn 10)) .Params.toc_twocolumn) }}
 {{ replace $toc `<nav ` `<nav class="fullwidth twocolumn" ` | safeHTML }}
 {{ else }}
 {{ $toc }}
