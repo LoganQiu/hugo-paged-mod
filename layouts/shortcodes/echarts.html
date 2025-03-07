@@ -1,49 +1,30 @@
 {{ $id := printf "echarts-%02d" .Ordinal }}
 <div id="{{ $id }}" class="echarts"></div>
 <script>
-  // 等待 echarts 加载完成
-  const waitForEcharts = () => {
-    return new Promise((resolve) => {
-      if (typeof echarts !== 'undefined') {
-        resolve();
-      } else {
-        const checkEcharts = () => {
-          if (typeof echarts !== 'undefined') {
-            resolve();
-          } else {
-            setTimeout(checkEcharts, 100);
-          }
-        };
-        checkEcharts();
-      }
-    });
-  };
-
-  // 初始化图表
-  const initChart = (option) => {
+  document.addEventListener('DOMContentLoaded', function () {
     let chart = null;
-    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const option = {{ .Inner | safeJS }};
     
-    const renderChart = () => {
+    function initChart() {
       if (chart) {
         chart.dispose();
       }
+      const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
       chart = echarts.init(document.getElementById('{{ $id }}'), darkModeMediaQuery.matches ? 'dark-bold' : undefined);
       chart.setOption(option);
-    };
+    }
     
-    renderChart();
+    // 初始化图表
+    initChart();
     
     // 监听系统主题变化
-    darkModeMediaQuery.addEventListener('change', renderChart);
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', initChart);
     
     // 响应式调整
-    window.addEventListener('resize', () => chart?.resize());
-  };
-
-  // 主流程
-  waitForEcharts().then(() => {
-    const option = {{ .Inner | safeJS }};
-    initChart(option);
+    window.addEventListener('resize', function() {
+      if (chart) {
+        chart.resize();
+      }
+    });
   });
 </script>
