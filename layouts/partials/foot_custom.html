@@ -20,4 +20,3 @@
   {{- $minified := $js | js.Build (dict "minify" true) -}}
   <script src="{{ $minified.RelPermalink }}"></script>
 {{ end }}
-{{- partial "foot_extra.html" . -}}
