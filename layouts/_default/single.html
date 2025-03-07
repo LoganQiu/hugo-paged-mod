@@ -19,9 +19,6 @@
   </span>
 </h3>
 </div>
-{{ if .Param "math" }}
-{{ partialCached "math.html" . }}
-{{ end }}
 <div class="main">
 {{ $toc := partial "toc.html" . }}
 {{ $toc_len := strings.Count `<li><a` $toc }}
