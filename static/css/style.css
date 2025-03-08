@@ -409,13 +409,16 @@ h1.title::before {
     --text-color: #e9ecef;
   }
   a,
-  body, 
+  body {
+    color: var(--text-color);
+  }
+
   .main>ul>li>span:first-child,
   .main>p>span:first-child,
   .main>p .subtitle,
   .post-nav,
   .stats {
-    color: var(--text-color);
+    color: var(--border-color);
   }
   code,
   #TableOfContents {
