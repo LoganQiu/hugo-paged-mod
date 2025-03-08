@@ -418,7 +418,7 @@ h1.title::before {
   .main>p .subtitle,
   .post-nav,
   .stats {
-    color: var(--border-color);
+    color: #999;
   }
   code,
   #TableOfContents {
