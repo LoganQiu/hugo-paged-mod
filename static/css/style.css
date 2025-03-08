@@ -84,7 +84,8 @@ pre code {
   display: block;
   padding: 1em 2em;
   overflow-x: auto;
-  word-break: break-all;
+  white-space: pre;
+  word-wrap: normal;
 }
 pre code, img[src$="#border"] {
   border: 1px solid var(--border-color);
@@ -95,6 +96,8 @@ pre code:not([class]) {
 code {
   font-size: 0.9em;
   hyphens: none;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .copy-button {
@@ -395,9 +398,6 @@ h1.title::before {
   h1.title::before {
     font-size: 9em;
     inset: -0.1em 0;
-  }
-  pre code {
-    white-space: pre;
   }
 }
 
