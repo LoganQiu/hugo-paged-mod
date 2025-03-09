@@ -1,0 +1,5 @@
+<h{{ .Level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}
+{{- if in (slice 2 3 4 5 6) .Level }}{{" " -}}
+  <a class="anchor" href="#{{ .Anchor | safeURL }}" aria-label="Anchor">#</a>
+{{- end -}}
+</h{{ .Level }}> 
