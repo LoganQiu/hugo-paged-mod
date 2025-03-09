@@ -147,7 +147,6 @@ code {
 a {
   text-decoration: none;
   border-bottom: 1px dashed;
-  color: initial;
 }
 @media (hover: hover) and (pointer: fine) {
   :not(.logo)>a:hover {
@@ -321,6 +320,19 @@ h1.title::before {
 .footnotes>hr {
   max-width: 20em;
   margin-left: 0;
+}
+
+.footnote-ref {
+  text-decoration: none;
+  margin-left: 0.2em;
+}
+
+.footnote-ref::before {
+  content: '[';
+}
+
+.footnote-ref::after {
+  content: ']';
 }
 
 .terms,

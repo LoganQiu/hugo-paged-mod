@@ -17,7 +17,9 @@
       function getText() {
         return (is_code && el.classList.contains('code-fence') && pre.parentNode?.classList.contains('fenced-chunk')) ?
           [...pre.parentNode.querySelectorAll('code[class]')]
-          .map(code => code.innerText.replace(/\n$/, '')).join('\n') : el.innerText;
+          // next line changed by @LoganQiu
+          // why use textContent instead of innerText? It's abnormal.
+          .map(code => code.textContent.replace(/\n$/, '')).join('\n') : el.textContent;
       }
       btn.onclick = () => navigator.clipboard.writeText(getText()).then(
         () => feedback(c1), () => feedback(c2)
