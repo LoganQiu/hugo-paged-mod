@@ -1,0 +1,24 @@
+{{ if and (not .Params.disable_comments) (or (eq .Kind "404") (and (not .IsHome) .Content)) }}
+<section class="fullwidth comments">
+<style>
+.comments {
+    margin-top: 4em;
+}
+        </style>
+<script src="https://giscus.app/client.js"
+        data-repo="LoganQiu/blog"
+        data-repo-id="R_kgDON9HMUw"
+        data-category="Announcements"
+        data-category-id="DIC_kwDON9HMU84Cnv1I"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>
+{{ end }}
