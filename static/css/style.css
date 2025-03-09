@@ -299,16 +299,13 @@ h1.title::before {
   max-width: 20em;
   margin-left: 0;
 }
-
 .footnote-ref {
   text-decoration: none;
   margin-left: 0.2em;
 }
-
 .footnote-ref::before {
   content: '[';
 }
-
 .footnote-ref::after {
   content: ']';
 }
