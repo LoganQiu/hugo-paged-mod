@@ -1,6 +1,7 @@
 {{- $has_code := (in .Content "</code></pre>") -}}
 {{- if $has_code -}}
   <script src="/js/copy-button.js" defer></script>
+  <link rel="stylesheet" href="/css/copy-button.css">
 {{ end }}
 {{- if (findRE `<p>(—|―|---|&mdash;)` .Content | len) -}}
   <script src="/js/right-quote.js" defer></script>
