@@ -117,8 +117,6 @@ code {
 
 .main, .home {
   hyphens: auto;
-}
-.main, .home, .terms {
   flex-grow: 1;
 }
 
@@ -315,8 +313,12 @@ h1.title::before {
   display: flex;
   flex-wrap: wrap;
 }
-.terms li, .term {
+.terms {
   margin-left: 2em;
+}
+.terms li {
+  margin-left: 2em;
+  margin-bottom: 1.5em;
 }
 .term-cat+.term-tag::before {
   content: " · ";
