@@ -245,7 +245,7 @@ kbd:hover {
 
 table {
   min-width: 50%;
-  margin: auto;
+  margin: 1em auto;
   border-top: 1px solid #aaa;
   border-bottom: 1px solid #aaa;
 }
