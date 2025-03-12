@@ -23,6 +23,7 @@
 
 body {
   max-width: var(--body-width);
+  min-height: calc(100vh - 3em);
   background-color: var(--bg-body);
   margin: auto;
   padding: 1em;
