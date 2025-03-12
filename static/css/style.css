@@ -38,6 +38,9 @@ body {
   color: var(--text-color);
 }
 
+strong, b {
+  font-weight: 800;
+}
 /* header and footer areas */
 .nav-top, .single .meta-line, .nav-bottom, .post-nav {
   display: flex;
