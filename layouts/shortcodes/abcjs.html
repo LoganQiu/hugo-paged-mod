@@ -1,6 +1,6 @@
 {{ $id := printf "abcjs-%02d" .Ordinal }}
 <div id="{{ $id }}" class="abcjs"></div>
-<script type="text/javascript">
+<script>
   var music={{ .Inner | safeHTML }};
   ABCJS.renderAbc({{ $id }}, music, { responsive: "resize" });
 </script>
