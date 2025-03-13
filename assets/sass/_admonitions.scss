@@ -47,10 +47,6 @@ $admonition-colors: (
     border-left: 4px solid var(--border-color);
     &:last-child { margin-bottom: 0; }
   }
-
-  code {
-    padding: 0.4em 0 0.4em 1.2em;
-  }
 }
 
 // Generate admonition types
