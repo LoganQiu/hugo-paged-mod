@@ -1,0 +1,20 @@
+<button id="backToTop" title="Back to top">⥣</button>
+<style>
+#backToTop {
+    position: fixed;
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    bottom: 20px;
+    right: 30px;
+    border: 1px solid;
+    box-shadow: -3px 3px #999;
+    background-color: var(--bg-block);
+    color: var(--text-color);
+  }
+</style>
+<script>
+    document.getElementById('backToTop').addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
