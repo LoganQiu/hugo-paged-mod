@@ -1,11 +1,11 @@
 .menu, .meta-line, footer, body {
-  font-family: "Palatino Linotype", "Palatino", "NSimSun", "SimSun-ExtB", "SimSun", "Songti SC", "SimSong", serif;
+  font-family: "Georgia", "NSimSun", "SimSun", "Songti SC", serif;
 }
 
 code {
-  font-family: Consolas, "Courier New", Monaco, "KaiTi", "KaiTi SC", monospace;
+  font-family: Consolas, Monaco, "Courier New", "SimKai", "KaiTi", "KaiTi SC", monospace;
 }
 
 blockquote, em {
-  font-family: "Georgia", "SimKai", "KaiTi", "Kaiti SC", "Kai", "STKaiti", serif;
+  font-family: "Georgia", "SimKai", "KaiTi", "Kaiti SC", serif;
 }
