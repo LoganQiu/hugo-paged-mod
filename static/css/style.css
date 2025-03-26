@@ -125,17 +125,16 @@ code {
 }
 
 a {
-  text-decoration: none;
-  border-bottom: 1px dashed;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
 }
 @media (hover: hover) and (pointer: fine) {
   :not(.logo)>a:hover {
-    position: relative;
-    inset: 1px 0 0 1px;
+    text-decoration: underline;
   }
 }
 nav a, footer a, .archive a, sup a {
-  border-bottom: none;
+  text-decoration: none;
 }
 
 .archive {
